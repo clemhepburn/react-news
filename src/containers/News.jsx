@@ -1,5 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { Component } from 'react';
+import React, { Component } from 'react';
 import SearchBar from '../components/search/Search';
 import './News.css';
 
