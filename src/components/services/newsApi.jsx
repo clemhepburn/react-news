@@ -5,5 +5,5 @@ export const fetchNews = async () => {
     `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${apiKey}`
   );
   const json = await res.json();
-  return json;
+  return json.articles;
 };
