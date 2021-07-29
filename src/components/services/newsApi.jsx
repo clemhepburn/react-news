@@ -1,7 +1,8 @@
 /* eslint-disable max-len */
 export const fetchNews = async () => {
+  const apiKey = process.env.NEWS_API_KEY;
   const res = await fetch(
-    'https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=e5b8c9aa95024515b5deb09b983c6fd6'
+    `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${apiKey}`
   );
   const json = await res.json();
   return json;
