@@ -4,15 +4,18 @@ import PropTypes from 'prop-types';
 const SearchBar = ({ text, onChange }) => (
   <>
     <header className="header">
-      <label htmlFor="text">News</label>
-      <input
-        id="text"
-        type="text"
-        value={text}
-        onChange={onChange}
-        name="text"
-      />
-      <button>Search</button>
+      <span className="coffee-news">☕ Coffee News </span>
+      <div className="search-div">
+        <label htmlFor="text">🔎 </label>
+        <input
+          id="text"
+          type="text"
+          value={text}
+          onChange={onChange}
+          name="text"
+        />
+        <button>Search</button>
+      </div>
     </header>
   </>
 );
