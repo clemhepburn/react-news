@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const SearchBar = ({ search, onChange, onSubmit }) => (
   <>
     <header className="header">
-      <span className="coffee-news">☕ Coffee News </span>
+      <span className="coffee-news">☕ <a href="/">Coffee News</a></span>
       <form onSubmit={onSubmit} className="search-div">
         <label htmlFor="search">🔎 </label>
         <input
