@@ -5,7 +5,7 @@ const SearchBar = ({ text, onChange }) => (
   <>
     <header className="header">
       <span className="coffee-news">☕ Coffee News </span>
-      <div className="search-div">
+      <form onSubmit={onSubmit} className="search-div">
         <label htmlFor="text">🔎 </label>
         <input
           id="text"
@@ -15,14 +15,15 @@ const SearchBar = ({ text, onChange }) => (
           name="text"
         />
         <button>Search</button>
-      </div>
+      </form>
     </header>
   </>
 );
 
 SearchBar.propTypes = {
-  text: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  text: PropTypes.string,
+  onChange: PropTypes.func,
+  onSubmit: PropTypes.func,
 };
 
 export default SearchBar;
