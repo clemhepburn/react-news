@@ -2,13 +2,13 @@
 import React, { Component } from 'react';
 import SearchBar from '../components/search/Search';
 import ArticleList from '../components/article/ArticleList';
-import { fetchNews } from '../components/services/newsApi';
+import { fetchNews, articleSearch } from '../components/services/newsApi';
 import './News.css';
 
 export default class Header extends Component {
 
-  state= {
-    text: '',
+  state = {
+    searchInput: '',
     articles: [],
     loading: true
   }
@@ -20,21 +20,32 @@ export default class Header extends Component {
     }, 1000);
   }
 
-  handleChange = ({ target }) => {
-    this.setState({ [target.name]: target.value });
+  handleChange = (target) => {
+    this.setState({ searchInput: target.value });
   }
 
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    this.setState({ articles, loading: true });
+    const articles = await articleSearch(this.state.search);
+    this.setState({
+      articles,
+      loading: false
+    });
+  };
+
   render() {
-    const { articles, loading, text } = this.state;
-    if(loading) return <h1>Loading...</h1>;
+    const { articles, loading, searchInput } = this.state;
+    if (loading) return <h1>Loading...</h1>;
 
     return (
       <>
         <SearchBar
-          text={text}
+          search={searchInput}
           onChange={this.handleChange}
+          onSubmit={this.handleSubmit}
         />
-        <ArticleList className="article-list" articles={articles} />;
+        <ArticleList className="article-list" search={searchInput} articles={articles} />;
       </>
     );
   }

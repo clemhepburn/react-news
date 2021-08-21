@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SearchBar = ({ text, onChange }) => (
+const SearchBar = ({ search, onChange, onSubmit }) => (
   <>
     <header className="header">
       <span className="coffee-news">☕ Coffee News </span>
       <form onSubmit={onSubmit} className="search-div">
-        <label htmlFor="text">🔎 </label>
+        <label htmlFor="search">🔎 </label>
         <input
-          id="text"
-          type="text"
-          value={text}
+          id="search"
+          type="search"
+          name="search"
+          placeholder="Search for an article..."
+          value={search}
           onChange={onChange}
-          name="text"
         />
         <button>Search</button>
       </form>
@@ -21,7 +22,7 @@ const SearchBar = ({ text, onChange }) => (
 );
 
 SearchBar.propTypes = {
-  text: PropTypes.string,
+  search: PropTypes.string,
   onChange: PropTypes.func,
   onSubmit: PropTypes.func,
 };
