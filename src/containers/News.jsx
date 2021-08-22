@@ -44,6 +44,7 @@ export default class Header extends Component {
           search={searchInput}
           onChange={this.handleChange}
           onSubmit={this.handleSubmit}
+          data-testid="search"
         />
         <ArticleList className="article-list" search={searchInput} articles={articles} />;
       </>
