@@ -14,6 +14,7 @@ const SearchBar = ({ search, onChange, onSubmit }) => (
           placeholder="Search for an article..."
           value={search}
           onChange={onChange}
+          data-testid="search"
         />
         <button>Search</button>
       </form>
